@@ -9,7 +9,7 @@ type CharDisplay struct {
 
 func NewCharDisplay(ch byte) *CharDisplay {
 	cd := &CharDisplay{ch: ch}
-	cd.AbstractDisplay = NewAbstractDisplay(cd)
+	cd.AbstractDisplay = &AbstractDisplay{AbstractDisplayIn: cd}
 	return cd
 }
 

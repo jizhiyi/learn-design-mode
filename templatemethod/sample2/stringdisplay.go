@@ -9,7 +9,7 @@ type StringDisplay struct {
 
 func NewStringDisplay(str string) *StringDisplay {
 	sd := &StringDisplay{str: str}
-	sd.AbstractDisplay = NewAbstractDisplay(sd)
+	sd.AbstractDisplay = &AbstractDisplay{AbstractDisplayIn: sd}
 	return sd
 }
 

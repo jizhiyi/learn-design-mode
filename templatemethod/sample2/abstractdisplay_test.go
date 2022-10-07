@@ -3,10 +3,8 @@ package sample2
 import "testing"
 
 func TestAbstractDisplayDisplay(t *testing.T) {
-	var charDisplay AbstractDisplayIn
-	charDisplay = NewCharDisplay('H')
+	var charDisplay AbstractDisplayIn = NewCharDisplay('H')
 	charDisplay.Display()
-	var stringDisplay AbstractDisplayIn
-	stringDisplay = NewStringDisplay("hello world")
+	var stringDisplay AbstractDisplayIn = NewStringDisplay("hello world")
 	stringDisplay.Display()
 }

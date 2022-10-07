@@ -11,10 +11,6 @@ type AbstractDisplay struct {
 	AbstractDisplayIn
 }
 
-func NewAbstractDisplay(abstractDisplayIn AbstractDisplayIn) *AbstractDisplay {
-	return &AbstractDisplay{AbstractDisplayIn: abstractDisplayIn}
-}
-
 func (ab *AbstractDisplay) Display() {
 	ab.open()
 	for i := 0; i < 5; i++ {
