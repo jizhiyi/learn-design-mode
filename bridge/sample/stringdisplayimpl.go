@@ -15,7 +15,7 @@ func (s *StringDisplayImpl) RawOpen() {
 }
 
 func (s *StringDisplayImpl) RawPrint() {
-	fmt.Printf("|%s|", s.str)
+	fmt.Printf("|%s|\n", s.str)
 }
 
 func (s *StringDisplayImpl) RawClose() {
@@ -23,9 +23,9 @@ func (s *StringDisplayImpl) RawClose() {
 }
 
 func (s *StringDisplayImpl) printline() {
-	fmt.Println("+")
+	fmt.Print("+")
 	for i, sz := 0, len(s.str); i < sz; i++ {
-		fmt.Println("-")
+		fmt.Print("-")
 	}
 	fmt.Println("+")
 }
