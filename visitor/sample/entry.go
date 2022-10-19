@@ -2,13 +2,17 @@ package sample
 
 import "fmt"
 
+type Element interface {
+	Accept(v Visitor)
+}
+
 type Entry interface {
 	GetName() string
 	GetSize() int
 	Add(entry Entry)
-	PrintList()
-	printList(prefix string)
 	String() string
+	EntryAggregate
+	Element
 }
 
 type entryBase struct {
@@ -28,6 +32,10 @@ func (e *entryBase) String() string {
 	return fmt.Sprintf("%s(%d)", e.GetName(), e.GetSize())
 }
 
-func (d *entryBase) PrintList() {
-	d.printList("")
+func (e *entryBase) Iterator() EntryIterator {
+	return emptyIterator
+}
+
+func (e *entryBase) Accept(v Visitor) {
+	v.Visit(e.Entry)
 }

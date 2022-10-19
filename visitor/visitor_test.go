@@ -1,12 +1,12 @@
-package composite
+package visitor
 
 import (
 	"fmt"
-	"learn/composite/sample"
+	"learn/visitor/sample"
 	"testing"
 )
 
-func TestEntry(t *testing.T) {
+func Test_Visitor(t *testing.T) {
 	rootdir := sample.NewDirectory("root")
 	bindir := sample.NewDirectory("bin")
 	tmpdir := sample.NewDirectory("tmp")
@@ -16,7 +16,7 @@ func TestEntry(t *testing.T) {
 	rootdir.Add(usrdir)
 	bindir.Add(sample.NewFile("vi", 10000))
 	bindir.Add(sample.NewFile("latex", 10000))
-	rootdir.PrintList()
+	rootdir.Accept(&sample.ListVisitor{})
 
 	fmt.Println()
 	fmt.Println("Making user entries...")
@@ -31,5 +31,5 @@ func TestEntry(t *testing.T) {
 	hanako.Add(sample.NewFile("memo.tex", 300))
 	tomura.Add(sample.NewFile("game.doc", 400))
 	tomura.Add(sample.NewFile("junk.mail", 500))
-	rootdir.PrintList()
+	rootdir.Accept(&sample.ListVisitor{})
 }
