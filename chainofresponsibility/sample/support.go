@@ -21,11 +21,12 @@ func (s *supportBase) SetNext(next Support) Support {
 
 func (s *supportBase) SupportFun(trouble *Trouble) {
 	if s.Resolve(trouble) {
-	} else  if 
-}
-
-func (s *supportBase) Resolve(trouble *Trouble) bool {
-	return false
+		s.done(trouble)
+	} else if s.nextSupport != nil {
+		s.nextSupport.SupportFun(trouble)
+	} else {
+		s.fail(trouble)
+	}
 }
 
 func (s *supportBase) String() string {
